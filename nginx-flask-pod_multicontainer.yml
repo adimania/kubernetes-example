@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-flask-demo
+  lables:
+    demo: nginx-flask
+spec:
+  containers:
+    - name: kubernetes-demo-nginx
+      image: adimania/nginx_pp_5000
+      command:
+        - /opt/run.sh
+      ports:
+        - containerPort: 80
+          hostPort: 8080
+    - name: kubernetes-demo-flask
+      image: adimania/flask
+      command: 
+        - /opt/run.sh
+      ports:
+        - containerPort: 5000
